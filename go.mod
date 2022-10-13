@@ -1,3 +1,3 @@
-module cher
+module cherlox
 
 go 1.19
