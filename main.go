@@ -7,11 +7,11 @@ import (
 	"log"
 )
 
-type Direction int
+type TokenType int
 
 const (
     // Single-character tokens.
-  	LEFT_PAREN Direction  = iota 
+  	LEFT_PAREN TokenType  = iota 
   	RIGHT_PAREN 
 	LEFT_BRACE
 	RIGHT_BRACE
@@ -59,6 +59,19 @@ const (
 	// End of file.
   	EOF
 )
+
+type Token struct {
+	tokenType TokenType
+	lexeme string
+	literal int
+	line int
+}
+
+func (t *Token) toString() {
+	concatenated := fmt.Sprintf("%d %s %d", t.tokenType, t.lexeme, t.literal)
+
+    fmt.Println(concatenated)
+}
 
 func main() {
     args := os.Args[1:]
